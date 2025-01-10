@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .app-container {
+            max-width: 600px;
+            margin: auto;
+            background: rgb(148, 148, 148);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #440101;
+        }
+
+        #prediction-form {
+            margin-bottom: 20px;
+        }
+
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #fafafa;
+            border-radius: 4px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #fe2200;
+            color: rgb(0, 0, 0);
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+
+        #prediction-result {
+            margin-top: 20px;
+        }
+
+        #result-container {
+            background: #4e7dac;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>House Price Prediction</h1>
+            <p>Enter the details of the house to predict its price.</p>
+        </header>
+
+        <section id="prediction-form">
+            <h2>Input Details</h2>
+            <input type="number" id="square-feet" placeholder="Square Feet" required>
+            <input type="number" id="bedrooms" placeholder="Number of Bedrooms" required>
+            <input type="number" id="bathrooms" placeholder="Number of Bathrooms" required>
+            <input type="text" id="location" placeholder="Location" required>
+            <div class="form-actions">
+                <button onclick="predictPrice()">Predict Price</button>
+            </div>
+        </section>
+
+        <section id="prediction-result">
+            <h2>Predicted Price</h2>
+            <div id="result-container">
+                <p id="result-text">No prediction made yet.</p>
+            </div>
+        </section>
+    </div>
+    <script>
+        function predictPrice() {
+            const squareFeet = document.getElementById('square-feet').value;
+            const bedrooms = document.getElementById('bedrooms').value;
+            const bathrooms = document.getElementById('bathrooms').value;
+            const location = document.getElementById('location').value;
+
+            // Simulate a prediction request to the backend
+            const predictedPrice = Math.floor(Math.random() * 1000000); // Random price for demonstration
+
+            // Display the result
+            const resultText = `The predicted price for a ${bedrooms} bedroom, ${bathrooms} bathroom house of ${squareFeet} sq ft in ${location} is $${predictedPrice}.`;
+            document.getElementById('result-text').innerText = resultText;
+        }
+    </script>
+</body>
+</html>
